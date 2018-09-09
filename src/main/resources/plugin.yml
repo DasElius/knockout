@@ -2,4 +2,4 @@ name: ${project.name}
 version: ${project.version}
 description: ${project.description}
 
-main: com.github.classroom.minecraftbeginning.MinecraftBeginning
+main: com.daselius.knockout.KnockOut
