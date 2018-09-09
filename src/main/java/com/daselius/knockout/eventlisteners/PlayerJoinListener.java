@@ -24,9 +24,11 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin( PlayerJoinEvent event ) {
         event.setJoinMessage( null );
-        session.getGamePlayerMap().put( event.getPlayer(), new GamePlayer( event.getPlayer() ) );
 
+        final GamePlayer gamePlayer;
+        session.getGamePlayerMap().put( event.getPlayer(), gamePlayer = new GamePlayer( event.getPlayer() ) );
 
+        gamePlayer.updatePlayer();
     }
 
     @EventHandler

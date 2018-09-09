@@ -1,6 +1,9 @@
 package com.daselius.knockout.session.player;
 
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * JavaDoc this file!
@@ -25,5 +28,12 @@ public class GamePlayer {
         deaths += 1;
         player.sendMessage( "You died " + getDeaths() + " times in your current session!" );
 
+    }
+
+    public void updatePlayer() {
+        player.getInventory().clear();
+        final ItemStack knockBackStick = new ItemStack( Material.STICK );
+        knockBackStick.addUnsafeEnchantment( Enchantment.KNOCKBACK, 1 );
+        player.getInventory().setItem( 0, knockBackStick );
     }
 }

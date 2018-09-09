@@ -1,6 +1,7 @@
 package com.daselius.knockout.eventlisteners;
 
 import com.daselius.knockout.session.GameSession;
+import com.daselius.knockout.session.player.GamePlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -25,7 +26,11 @@ public class PlayerMoveListener implements Listener {
             event.getPlayer().setFallDistance( 0f );
             event.setTo( session.getGameMap().getSpawnLocation() );
 
-            session.getGamePlayerMap().get( event.getPlayer() ).addDeath();
+            final GamePlayer gamePlayer = session.getGamePlayerMap().get( event.getPlayer() );
+            gamePlayer.addDeath();
+            gamePlayer.updatePlayer();
+
+
         }
     }
 
