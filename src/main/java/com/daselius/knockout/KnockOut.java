@@ -31,6 +31,9 @@ public class KnockOut extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents( new EntityDamageListener(), this );
         getServer().getPluginManager().registerEvents( new FoodLevelChangeListener(), this );
+        getServer().getPluginManager().registerEvents( new PlayerItemDropListener(), this );
+        getServer().getPluginManager().registerEvents( new InventoryClickListener(), this );
+
     }
 
     @Override
