@@ -2,6 +2,7 @@ package com.daselius.knockout.runnables;
 
 import com.daselius.knockout.session.GameSession;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 
 /**
@@ -14,7 +15,7 @@ public class Scheduler implements Runnable {
 
     private final GameSession session;
 
-    int kitChangeTime = 300;
+    int kitChangeTime = 20;
     int mapChangeTime = 20;
 
     public Scheduler( final GameSession session ) {
@@ -31,6 +32,16 @@ public class Scheduler implements Runnable {
         if ( mapChangeTime == 0 ) {
             session.changeMap();
             mapChangeTime = 20;
+        }
+
+        if ( kitChangeTime == 0 ) {
+            for(Player all : Bukkit.getOnlinePlayers()) {
+
+                session.changeKit( all );
+
+            }
+
+            kitChangeTime = 20;
         }
     }
 }

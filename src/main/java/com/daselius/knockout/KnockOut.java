@@ -1,12 +1,15 @@
 package com.daselius.knockout;
 
 import com.daselius.knockout.eventlisteners.*;
+import com.daselius.knockout.kits.Kit;
 import com.daselius.knockout.map.GameMap;
 import com.daselius.knockout.runnables.Scheduler;
 import com.daselius.knockout.session.GameSession;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -18,6 +21,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class KnockOut extends JavaPlugin {
 
     private final GameSession session = new GameSession();
+    private final Kit kit = new Kit();
 
     @Override
     public void onEnable() {
@@ -39,6 +43,18 @@ public class KnockOut extends JavaPlugin {
             world.setThunderDuration( 0 );
             world.setWeatherDuration( 0 );
         }
+
+        final Kit kit = new Kit();
+        kit.setName( "Snowman" );
+        kit.setKitItems( new ItemStack( Material.SNOW_BALL, 3 ) );
+
+        final Kit kit2 = new Kit();
+        kit2.setName( "Fisher" );
+        kit2.setKitItems( new ItemStack( Material.FISHING_ROD ) );
+
+        session.getKitList().add( kit );
+        session.getKitList().add( kit2 );
+
 
         getServer().getPluginManager().registerEvents( new PlayerJoinListener( session ), this );
         getServer().getPluginManager().registerEvents( new PlayerQuitListener( session ), this );

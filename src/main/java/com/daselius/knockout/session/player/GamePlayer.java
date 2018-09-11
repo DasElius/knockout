@@ -29,11 +29,4 @@ public class GamePlayer {
         player.sendMessage( "You died " + getDeaths() + " times in your current session!" );
 
     }
-
-    public void updatePlayer() {
-        player.getInventory().clear();
-        final ItemStack knockBackStick = new ItemStack( Material.STICK );
-        knockBackStick.addUnsafeEnchantment( Enchantment.KNOCKBACK, 1 );
-        player.getInventory().setItem( 0, knockBackStick );
-    }
 }

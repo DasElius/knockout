@@ -28,7 +28,7 @@ public class PlayerJoinListener implements Listener {
         final GamePlayer gamePlayer;
         session.getGamePlayerMap().put( event.getPlayer(), gamePlayer = new GamePlayer( event.getPlayer() ) );
 
-        gamePlayer.updatePlayer();
+        session.changeKit( event.getPlayer() );
     }
 
     @EventHandler

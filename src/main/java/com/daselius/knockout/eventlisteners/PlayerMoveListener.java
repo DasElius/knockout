@@ -28,7 +28,6 @@ public class PlayerMoveListener implements Listener {
 
             final GamePlayer gamePlayer = session.getGamePlayerMap().get( event.getPlayer() );
             gamePlayer.addDeath();
-            gamePlayer.updatePlayer();
 
 
         }
